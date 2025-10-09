@@ -1,0 +1,29 @@
+# Core data handling
+pandas
+numpy
+
+# data viz
+matplotlib
+seaborn
+# HTTP requests
+requests
+
+# Dune API client (official or community)
+dune-client
+
+# Coingecko API client
+pycoingecko
+
+# For working with JSON and data manipulation
+python-dateutil
+
+# (Optional) For progress bars and nice CLI output
+tqdm
+
+# (Optional) For Jupyter notebooks
+notebook
+
+# For environment variable management
+python-dotenv
+joblib
+plotly
