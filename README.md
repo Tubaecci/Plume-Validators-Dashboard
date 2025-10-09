@@ -47,9 +47,6 @@ The **Plume Validators Dashboard** is an interactive analytics platform for expl
    streamlit run app.py
    ```
 
-## Screenshots
-
-*(Add screenshots of your dashboard here)*
 
 ## License
 
