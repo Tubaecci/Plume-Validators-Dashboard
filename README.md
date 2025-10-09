@@ -1,4 +1,4 @@
-# Plume Validators
+# Plume Validators Dashboard
 
 The **Plume Validators Dashboard** is an interactive analytics platform for exploring and monitoring validator activity on the Plume blockchain. Built with Streamlit, Plotly, and Pandas, this dashboard provides real-time insights into validator performance, staking trends, and key network statistics.
 
