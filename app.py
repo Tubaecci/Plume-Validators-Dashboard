@@ -25,24 +25,31 @@ with st.sidebar:
     if st.button("🔄 Refresh Data"):
         with st.spinner("Refreshing data from Dune..."):
             load_dotenv(dotenv_path=".env")
-            dune_api_key = os.getenv("DUNE_API")
-            dune = DuneClient(api_key=dune_api_key)
+            # Prefer the canonical env name DUNE_API_KEY, fall back to DUNE_API if present
+            dune_api_key = os.getenv("DUNE_API_KEY") or os.getenv("DUNE_API")
+            if not dune_api_key:
+                st.error("DUNE API key not found. Set DUNE_API_KEY in your .env or environment.")
+            else:
+                try:
+                    dune = DuneClient(api_key=dune_api_key)
 
-            # Refresh and fetch overall data
-            query_overall = QueryBase(query_id=5925380)
-            dune.refresh(query_overall)
-            result_overall = dune.get_latest_result(5925380)
-            df_dune_overall = pd.DataFrame(result_overall.get_rows())
-            joblib.dump(df_dune_overall, "database/df_dune_overall.joblib")
+                    # Refresh and fetch overall data
+                    query_overall = QueryBase(query_id=5925380)
+                    dune.refresh(query_overall)
+                    result_overall = dune.get_latest_result(5925380)
+                    df_dune_overall = pd.DataFrame(result_overall.get_rows())
+                    joblib.dump(df_dune_overall, "database/df_dune_overall.joblib")
 
-            # Refresh and fetch daily data
-            query_daily = QueryBase(query_id=5927491)
-            dune.refresh(query_daily)
-            result_daily = dune.get_latest_result(5927491)
-            df_dune_daily = pd.DataFrame(result_daily.get_rows())
-            joblib.dump(df_dune_daily, "database/df_dune_daily.joblib")
+                    # Refresh and fetch daily data
+                    query_daily = QueryBase(query_id=5927491)
+                    dune.refresh(query_daily)
+                    result_daily = dune.get_latest_result(5927491)
+                    df_dune_daily = pd.DataFrame(result_daily.get_rows())
+                    joblib.dump(df_dune_daily, "database/df_dune_daily.joblib")
 
-        st.success("Data refreshed! Please reload the page to see the latest data.")
+                    st.success("Data refreshed! Please reload the page to see the latest data.")
+                except Exception as e:
+                    st.error(f"Failed to refresh data from Dune: {e}")
 
     st.markdown(
         """
