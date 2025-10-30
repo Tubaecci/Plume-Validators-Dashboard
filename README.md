@@ -1,6 +1,6 @@
 # Plume Validators Dashboard
 
-The **Plume Validators Dashboard** is an interactive analytics platform for exploring and monitoring validator activity on the Plume blockchain. Built with Streamlit, Plotly, and Pandas, this dashboard provides real-time insights into validator performance, staking trends, and key network statistics.
+The **Plume Validators Dashboard** is an interactive analytics platform for exploring and monitoring validator activity on the Plume blockchain. Built with vercel, this dashboard provides real-time insights into validator performance, staking trends, and key network statistics.
 
 ## Features
 
@@ -8,7 +8,7 @@ The **Plume Validators Dashboard** is an interactive analytics platform for expl
   View the total number of validators, total PLUME staked, and a detailed table of validator statistics, including commission rates and stake distribution.
 
 - **Validator Performance:**  
-  Select from the top validators to visualize daily staking activity, growth rates, and staker participation with dynamic charts.
+  Select from the list of validators to visualize daily staking activity, growth rates, and staker participation with dynamic charts.
 
 - **Staking Rewards:**  
   (Coming Soon) Analyze staking reward trends and performance.
@@ -18,8 +18,7 @@ The **Plume Validators Dashboard** is an interactive analytics platform for expl
 
 ## Technologies Used
 
-- [Streamlit](https://streamlit.io/)
-- [Plotly](https://plotly.com/python/)
+- [Vercel](https://vercel.com/)
 - [Pandas](https://pandas.pydata.org/)
 - [Dune Analytics API](https://dune.com/)
 - [Python](https://www.python.org/)
@@ -40,11 +39,6 @@ The **Plume Validators Dashboard** is an interactive analytics platform for expl
 3. **Set up your `.env` file:**
    ```
    DUNE_API=your_dune_api_key
-   ```
-
-4. **Run the dashboard:**
-   ```bash
-   streamlit run app.py
    ```
 
 
